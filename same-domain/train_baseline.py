@@ -166,6 +166,8 @@ def predict():
             test_pred+=predict
 
         P,R,F=evaluate_word_PRF(test_pred,y_test)
+        print '%s: P:%f R:%f F:%f' % (FLAGS.model_path,P,R,F)
+        print '------------------------------------------'
 
 
 

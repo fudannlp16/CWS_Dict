@@ -19,6 +19,7 @@ The data directory would be:
         dataset_dev
         dataset_test
         dataset_train_bigram
+        wordvec_100
         dict_1 (Simplified Chinese dictionary from jieba)
         dict_2 (Traditional Chinese dictionary from Taiwan version of jieba)
 2.Then, set the hyperparameter of config.py according to the paper, and run:
