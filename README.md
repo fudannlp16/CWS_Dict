@@ -12,4 +12,16 @@ Qi Zhang, Xiaoyu Liu, Jinlan Fu. Neural Networks Incorporating Dictionaries for 
     CWS_dict
         same-domain:  In-domain evaluation for CWS (SIGHAN2005,CTB6)
         cross-domain: Cross-domain evaluation for CWS (SIGHAN2010)
+        
 
+## Experiments
+
+## Introduction
+Although neural network based methods achieved great success for Chinese word segmentation task, these methods typically lack the capability of processing rare words and data whose domains are different from training data. However, dictionaries contains both rare words and domain-specific words.
+In this paper, we study the problem of integrating dictionaries into neural networks based methods for the Chinese word segmentation task. To integrate dictionaries, we define several feature templates to construct feature vectors for each character based on dictionaries and contexts. Then, two different methods that extend the Bi-LSTM-CRF are proposed to perform the task.
+
+Experiments show our methods can achieve better performance than other state-of-the-art neural network methods and domain adaptation approaches in most cases. In particular, when applying the trained model on different domains, we only need to add extra domain specific dictionaries. The other learned parameters can remain unchanged with no need for retraining.
+
+## Method
+### Feature Vector Construction
+For a given sentence  $\mathbf{x}=(x_1,x_2,...,x_n)$, we first construct feature vector $\mathbf{t}_i$ for each character $x_i$ based on dictionary $D$ and the context using the pre-defined feature templates. The feature templates used in our work are listed as follow:
