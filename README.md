@@ -22,20 +22,15 @@ Experiments show our methods can achieve better performance than other state-of-
 ## Method
 ### Feature Vector Construction
 #### The feature templates used in our work:
-<center>
-![](fig/feature_templates.png)
-</center>
+![](https://github.com/fudannlp16/CWS_Dict/blob/master/fig/feature_templates.png)
+
+
 #### An example of feature vector construnction:
-<center>
-![](fig/fvexample.pdf)
-</center>
+![](https://github.com/fudannlp16/CWS_Dict/blob/master/fig/fvexample.pdf)
 
 ### Model-I
-<center>
-![](fig/model-1.pdf)
-</center>
+![](https://github.com/fudannlp16/CWS_Dict/blob/master/fig/model-1.pdf)
+
 
 ### Model-II
-<center>
-![](fig/model-2.pdf)
-</center>
+![](https://github.com/fudannlp16/CWS_Dict/blob/master/fig/model-2.pdf)
