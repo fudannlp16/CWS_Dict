@@ -19,22 +19,4 @@ In this paper, we study the problem of integrating dictionaries into neural netw
 
 Experiments show our methods can achieve better performance than other state-of-the-art neural network methods and domain adaptation approaches in most cases. In particular, when applying the trained model on different domains, we only need to add extra domain specific dictionaries. The other learned parameters can remain unchanged with no need for retraining.
 
-## Method
-### 1 Feature Vector Construction
-#### 1.1 The feature templates used in our work:
 
-![](./fig/feature_templates.png)
-
-
-#### 1.2 An example of feature vector construnction:
-
-![](./fig/fvexample.png)
-
-### 2 Model-I
-
-![](./fig/model-1.png)
-
-
-### 3 Model-II
-
-![](./fig/model-2.png)
