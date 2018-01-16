@@ -80,8 +80,7 @@ def train():
         best_f1,best_e=0,0
         for epoch in xrange(config.n_epoch):
             start_time=time.time()
-
-            #train
+            #
             #train
             train_loss=[]
             for step,(X,dict_X,Y) in enumerate(data_iterator2(zip(X_train,dict_train),y_train,128,padding_word=word2id[PAD],shuffle=True)):
@@ -92,23 +91,24 @@ def train():
             train_loss=np.mean(train_loss,dtype=float)
             print 'Train Epoch %d loss %f' % (epoch, train_loss)
 
-
-            #valid
-            valid_loss=[]
-            valid_pred=[]
+            # valid
+            valid_loss = []
+            valid_pred = []
             for i in range(0, len(X_valid), config.batch_size):
                 input_x = X_valid[slice(i, i + config.batch_size)]
+                dict_X = dict_valid[slice(i, i + config.batch_size)]
                 input_x = padding3(input_x, word2id[PAD])
+                dict_X = padding2(dict_X, word2id[PAD])
                 y = y_valid[slice(i, i + config.batch_size)]
-                y = padding(y,3)
-                loss, predict= model.dev_step(sess, input_x, y)
+                y = padding(y, 3)
+                loss, predict = model.dev_step(sess, input_x, dict_X, y)
                 valid_loss.append(loss)
-                valid_pred+=predict
-            valid_loss=np.mean(valid_loss,dtype=float)
-            P,R,F=evaluate_word_PRF(valid_pred,y_valid)
-            print 'Valid Epoch %d loss %f' % (epoch,valid_loss)
-            print 'P:%f R:%f F:%f' % (P,R,F)
-            print '--------------------------------'
+                valid_pred += predict
+            valid_loss = np.mean(valid_loss, dtype=float)
+            P, R, F = evaluate_word_PRF(valid_pred, y_valid)
+            print 'Valid Epoch %d loss %f' % (epoch, valid_loss)
+            print 'P:%f R:%f F:%f' % (P, R, F)
+
 
             if F>best_f1:
                 best_f1=F
@@ -120,13 +120,15 @@ def train():
             test_pred = []
             for i in range(0, len(x_test), config.batch_size):
                 input_x = x_test[slice(i, i + config.batch_size)]
+                dict_X = dict_test[slice(i, i + config.batch_size)]
                 input_x = padding3(input_x, word2id[PAD])
-                y = y_test[slice(i, i + config.batch_size)]
-                y = padding(y, 3)
-                predict= model.predict_step(sess, input_x)
+                dict_X = padding2(dict_X, word2id[PAD])
+                predict= model.predict_step(sess, input_x,dict_X)
                 test_pred += predict
             P, R, F = evaluate_word_PRF(test_pred, y_test)
             print 'Test: P:%f R:%f F:%f Best_F:%f' % (P, R, F,best_f1)
+            print '--------------------------------'
+
 
             if best_e>4:
                 print 'Early stopping'
@@ -168,8 +170,6 @@ def predict():
             dict_X = dict_test[slice(i, i + config.batch_size)]
             input_x=padding3(input_x,word2id[PAD])
             dict_X = padding2(dict_X, word2id[PAD])
-            y = y_test[slice(i, i + config.batch_size)]
-            y = padding(y, 3)
             predict = model.predict_step(sess, input_x, dict_X)
             test_pred+=predict
         P,R,F=evaluate_word_PRF(test_pred,y_test)
