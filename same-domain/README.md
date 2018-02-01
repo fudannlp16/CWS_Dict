@@ -30,7 +30,7 @@ dataset: pku,msr,as,cityu,ctb
 
 model: DictConcatModel(Model-1) DictHyperModel(Model-II)
 
-3.You can download our trained model from [here](), and run the test script:
+3.You can download our trained model from [here](https://drive.google.com/file/d/1vGQpSKamRRMQo-RWXViHq9173qDdNO2_/view?usp=sharing), and run the test script:
 
     ./scripts/test_dictmodel1.sh
     ./scripts/test_dictmodel2.sh

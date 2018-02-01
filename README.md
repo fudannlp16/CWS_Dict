@@ -1,7 +1,7 @@
 # Neural Networks Incorporating Dictionaries for Chinese Word Segmentation
 Source codes and corpora for the Chinese word segmentation algorithm proposed in the following paper.
 
-Qi Zhang, Xiaoyu Liu, Jinlan Fu. Neural Networks Incorporating Dictionaries for Chinese Word Segmentation. AAAI 2018 [PDF](http://jkx.fudan.edu.cn/~qzhang/paper/aaai2017-cws.pdf)
+Qi Zhang, Xiaoyu Liu, Jinlan Fu. Neural Networks Incorporating Dictionaries for Chinese Word Segmentation. AAAI 2018
 
 ## Dependencies
 * [Python 2.7](https://www.python.org/)
